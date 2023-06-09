@@ -4,7 +4,7 @@ import com.sun.istack.NotNull;
 import lombok.Data;
 
 @Data
-public class AnswerDTO {
+public class List<AnswerDTO> {
     @NotNull
     private Integer questionId;
     private String answerOfUser;
