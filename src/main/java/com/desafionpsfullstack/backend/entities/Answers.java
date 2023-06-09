@@ -1,6 +1,7 @@
 package com.desafionpsfullstack.backend.entities;
 
 import com.sun.istack.NotNull;
+import io.swagger.v3.oas.annotations.media.ArraySchema;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

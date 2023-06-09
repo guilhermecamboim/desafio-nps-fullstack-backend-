@@ -2,6 +2,7 @@ package com.desafionpsfullstack.backend.controller;
 
 import com.desafionpsfullstack.backend.domain.AnswerRepository;
 import com.desafionpsfullstack.backend.dto.AnswerDTO;
+import com.desafionpsfullstack.backend.dto.ListAnswerDTO;
 import com.desafionpsfullstack.backend.entities.Answers;
 import io.swagger.annotations.Api;
 import lombok.AllArgsConstructor;
@@ -17,12 +18,16 @@ public class AnswerController {
     AnswerRepository repository;
 
     @PostMapping("/answers")
-    public Answers savePost(@RequestBody AnswerDTO answerDTO){
-        Answers answerPost = Answers.builder()
-                .answerOfUser(answerDTO.getAnswerOfUser())
-                .rangeSelected(answerDTO.getRangeSelected())
-                .build();
-        return repository.save(answerPost);
+    public List<Answers> savePost(@RequestBody ListAnswerDTO answers){
+        answers.getAnswersOfQuestions().forEach(q -> {
+            Answers getAnswers = Answers.builder()
+                    .questionId(q.getQuestionId())
+                    .answerOfUser(q.getAnswerOfUser())
+                    .rangeSelected(q.getRangeSelected())
+                    .build();
+            repository.save(getAnswers);
+        });
+        return getAllAnswers();
     }
 
     @GetMapping

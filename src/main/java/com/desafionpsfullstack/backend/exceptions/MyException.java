@@ -1,4 +1,4 @@
-package com.desafionpsfullstack.backend;
+package com.desafionpsfullstack.backend.exceptions;
 
 public class MyException extends RuntimeException {
 
