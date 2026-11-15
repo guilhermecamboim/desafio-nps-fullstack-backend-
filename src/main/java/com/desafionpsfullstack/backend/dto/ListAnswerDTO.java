@@ -1,6 +1,5 @@
 package com.desafionpsfullstack.backend.dto;
 
-import com.sun.istack.NotNull;
 import lombok.Data;
 
 import java.util.List;
