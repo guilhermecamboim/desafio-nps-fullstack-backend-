@@ -4,14 +4,14 @@ import com.desafionpsfullstack.backend.domain.AnswerRepository;
 import com.desafionpsfullstack.backend.dto.AnswerDTO;
 import com.desafionpsfullstack.backend.dto.ListAnswerDTO;
 import com.desafionpsfullstack.backend.entities.Answers;
-import io.swagger.annotations.Api;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@Api(tags = "Answers")
+@Tag(name = "Answers")
 @CrossOrigin(origins = "http://127.0.0.1:5173")
 @AllArgsConstructor
 public class AnswerController {

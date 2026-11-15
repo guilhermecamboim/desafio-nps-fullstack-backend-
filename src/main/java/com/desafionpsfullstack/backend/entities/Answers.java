@@ -1,13 +1,14 @@
 package com.desafionpsfullstack.backend.entities;
 
-import com.sun.istack.NotNull;
+// com.sun.istack.NotNull (do jaxb do Hibernate 5) não existe mais no Hibernate 7; lombok.NonNull mantém as mesmas checagens de nulo geradas pelo Lombok
+import lombok.NonNull;
 import io.swagger.v3.oas.annotations.media.ArraySchema;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "Answers")
@@ -19,10 +20,10 @@ public class Answers {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @NotNull
+    @NonNull
     private Integer questionId;
     private String answerOfUser;
-    @NotNull
+    @NonNull
     private Integer rangeSelected;
 
 
